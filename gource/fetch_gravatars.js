@@ -1,12 +1,9 @@
-const { exec } = require('child_process');
+const fs = require('fs');
+const { execSync } = require('child_process');
 
-exec('`git log`', (err, stdout, stderr) => {
-  if (err) {
-    // node couldn't execute the command
-    return;
-  }
+if(!fs.existsSync('./avatars')) {
+  fs.mkdirSync('./avatars')
+}
 
-  // the *entire* stdout and stderr (buffered)
-  console.log(`stdout: ${stdout}`);
-  console.log(`stderr: ${stderr}`);
-});
+let authors[] = execSync('git log --pretty=format:"%ae|%an').toString().split('\n');
+console.log(authors);
