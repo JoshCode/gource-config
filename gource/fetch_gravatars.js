@@ -36,16 +36,30 @@ let authors = execSync('git log --pretty=format:"%ae|%an').toString().split('\n'
 
 console.log("Fetching Gravatars")
 let promises = [];
+let authorlist = {}
+
 for (let i = 0; i < authors.length; i++) {
-	let author = authors[i].split("|");
-	author[0] = author[0].trim().toLowerCase();
-	console.log(`Fetching for '${author[1]}': ${author[0]}`)
-	let hash = crypto.createHash('md5').update(author[0]).digest("hex")
+	let split = authors[i].split("|");
+	authorlist[`${split[1]}`] = {
+		name: split[1],
+		email: split[0]
+	}
+}
+
+let authorlistkeys = Object.keys(authorlist);
+console.log(authorlist);
+console.log(authorlistkeys);
+
+for (let i = 0; i < authorlistkeys.length; i++) {
+	let author = authorlist[authorlistkeys[i]];
+	author.email = author.email.trim().toLowerCase();
+	console.log(`Fetching for '${author.name}': ${author.email}`)
+	let hash = crypto.createHash('md5').update(author.email).digest("hex")
 	let url = `http://www.gravatar.com/avatar/${hash}?d=404&r=g&size=${size}`
 	console.log(`  url: ${url}`)
-	let promise = download(url, `${output_dir}/${author[1]}.png`)
+	let promise = download(url, `${output_dir}/${author.name}.png`)
 	promise.then(() => {
-		console.log(`Fetching for '${author[1]}': ${author[0]} complete`)
+		console.log(`Fetching for '${author.name}': ${author.email} complete`)
 	});
 	promises.push(promise);
 }
