@@ -1,7 +1,7 @@
 [display]
 ### Display settings
 fullscreen=false
-viewport=1280x720
+viewport=1600x900
 screen=1
 multi-sampling=true
 no-vsync=true
@@ -9,27 +9,44 @@ frameless=true
 
 [gource]
 ### Behaviour values
-disable-auto-skip=true
+# disable-auto-skip=true
+auto-skip-seconds=.5
 seconds-per-day=3
-max-file-lag=0.5
-elasticity=0.5
+max-file-lag=1
 file-idle-time=0
+elasticity=0.015
+max-user-speed=315
+user-friction=.5
 
-### Appearance
+## Appearance
 # title=My Title
 # logo=logo.png
 font-size=16
 background-colour=151515
 
-bloom-intensity=1
-bloom-multiplier=1
+bloom-intensity=0.5
+bloom-multiplier=0.5
 
 hide=progress,mouse
 
-### Misc
+### Highlighting
+highlight-colour=FFD700
+highlight-users=true
+highlight-dirs=false
+
+highlight-user=JoshCode
+
+## Misc
 camera-mode=overview
 key=true
 stop-at-end=true
 colour-images=true
 user-image-dir=./.git/avatars
 default-user-image=./gource/default_avatar.png
+
+### Captions
+caption-file=./gource/captions.txt
+caption-size=12px
+caption-colour=ffffff
+caption-duration=5
+caption-offset=-100px
