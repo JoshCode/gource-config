@@ -10,7 +10,7 @@ frameless=true
 [gource]
 ### Behaviour values
 disable-auto-skip=true
-seconds-per-day=1
+seconds-per-day=3
 max-file-lag=0.5
 elasticity=0.5
 file-idle-time=0
