@@ -1,0 +1,35 @@
+[display]
+### Display settings
+fullscreen=false
+viewport=1280x720
+screen=1
+multi-sampling=true
+no-vsync=true
+frameless=true
+
+[gource]
+### Behaviour values
+disable-auto-skip=true
+seconds-per-day=1
+max-file-lag=0.5
+elasticity=0.5
+file-idle-time=0
+
+### Appearance
+# title=My Title
+# logo=logo.png
+font-size=16
+background-colour=151515
+
+bloom-intensity=1
+bloom-multiplier=1
+
+hide=progress,mouse
+
+### Misc
+camera-mode=overview
+key=true
+stop-at-end=true
+colour-images=true
+user-image-dir=./.git/avatars
+default-user-image=./gource/default_avatar.png
